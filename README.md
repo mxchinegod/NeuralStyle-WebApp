@@ -12,6 +12,13 @@ That being said, it was very possible and we don't mind it being here for certai
 
 `~$: python /var/www/html/chainer-fast-neuralstyle/train.py -s <style_image_path> -d /var/www/html/chainer-fast-neuralstyle/vgg16.model -g 0`
 
+# Structure & Info
+
+  -This uses an ambitious PHP & python configuration to hand commands to a machine learning algorithm on the server and output the results into a very simple folder hierarchy based on a UI principle you'll see after deployment (or if you check out the variables in index.html's form). This allows the files to be easily retrieved by each user with their email as a key, and provides a database-free way to do this simple task. 
+  
+  -The CSS & whatnot is all Bootstrap
+  
+  -The python chainer implementation was not by me, I just jerry-rigged it with python to the PHP/apache interface.
 
 # Setup:
   
