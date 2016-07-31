@@ -10,7 +10,7 @@ That being said, it was very possible and we don't mind it being here for certai
 -If you plan on exporting new models from images like I explain in "Setup" then you should do this:
 
 
--`~$: python /var/www/html/chainer-fast-neuralstyle/train.py -s <style_image_path> -d /var/www/html/chainer-fast-neuralstyle/vgg16.model -g 0`
+`~$: python /var/www/html/chainer-fast-neuralstyle/train.py -s <style_image_path> -d /var/www/html/chainer-fast-neuralstyle/vgg16.model -g 0`
 
 
 # Setup:
@@ -18,11 +18,12 @@ That being said, it was very possible and we don't mind it being here for certai
   -A GPU-based machine for CUDA rendering of new models from images (optional).
   
   -A memory-based machine for rendering higher-quality images (optional).
-  Ubuntu 14+ 
+ 
+  -Ubuntu 14+ or similar.
   
 # Requirements:
   
-  -You need python2.7 (could probably work with 3 if you change some things): `sudo apt-get install python2.7`
+  -You need python27 (could probably work with 3 if you change some things). This comes with Ubuntu but if you don't have it: `sudo apt-get build-essential checkinstall`
   
   -You need chainer: `sudo pip install chainer`
   
