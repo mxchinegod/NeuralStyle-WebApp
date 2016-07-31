@@ -26,7 +26,7 @@ That being said, it was very possible and we don't mind it being here for certai
   
   -A memory-based machine for rendering higher-quality images (optional).
  
-  -Ubuntu 14+ or similar.
+  -Ubuntu 14+ or similar or at least be prepared to install apache, python, and replace `apt-get` with `yum`.
   
 # Requirements:
   
