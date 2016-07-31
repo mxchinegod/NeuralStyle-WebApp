@@ -14,7 +14,7 @@ That being said, it was very possible and we don't mind it being here for certai
 
 # Structure & Info
 
-  -This uses an ambitious PHP & python configuration to hand commands to a machine learning algorithm on the server and output the results into a very simple folder hierarchy based on a UI principle you'll see after deployment (or if you check out the variables in index.html's form). This allows the files to be easily retrieved by each user with their email as a key, and provides a database-free way to do this simple task. 
+  -This uses an ambitious PHP & python configuration to hand commands to a machine learning algorithm on the server and output the results into a very simple folder hierarchy based on a UI principle you'll see after deployment (or if you check out the variables in the upload.php code). This allows the files to be easily retrieved by each user with their email as a key, and provides a database-free way to do this simple task. 
   
   -The CSS & whatnot is all Bootstrap
   
