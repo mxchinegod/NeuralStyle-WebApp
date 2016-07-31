@@ -1,5 +1,7 @@
 # NeuralStyle-WebApp
--A web app that takes any user-submitted image and runs the algorithm from "Neural Algorithms for Artistic Style" using a chainer implementation I found.
+-A web app that takes any user-submitted image and runs the algorithm from "Neural Algorithms for Artistic Style" using a chainer implementation I found. It's very specific (logos, etc.) because this is actually for a client and it's copyrighted as a result. However, I know a lot of people want to know how they can do this and people told my client that it couldn't be done without a 10K budget which was lame. 
+
+That being said, it was very possible and we don't mind it being here for certain people to gaze upon.
 
 
 -https://github.com/yusuketomoto/chainer-fast-neuralstyle/blob/master/generate.py
