@@ -10,7 +10,7 @@ That being said, it was very possible and we don't mind it being here for certai
 -If you plan on exporting new models from images like I explain in "Setup" then you should do this:
 
 
-`~$: python /var/www/html/chainer-fast-neuralstyle/train.py -s <style_image_path> -d /var/www/html/chainer-fast-neuralstyle/vgg16.model -g 0`
+`~$: sudo python /var/www/html/chainer-fast-neuralstyle/train.py -s <style_image_path> -d /var/www/html/chainer-fast-neuralstyle/vgg16.model -g 0`
 
 # Structure & Info
 
