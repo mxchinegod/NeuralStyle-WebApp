@@ -98,6 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	  $email = test_input($_POST["email"]);
 	  // check if e-mail address is well-formed
 	  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+<<<<<<< HEAD
 	    $emailErr = " <b>Invalid email format</b><br><br>";
 	    rmdir($target_dir.$email);
 	    $uploadOk = 0;
@@ -109,6 +110,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		echo $styleErr;
 		unlink($target_file);
 		rmdir($target_dir.$email);
+=======
+	    $emailErr = " Invalid email format"; 
+	    echo $emailErr;
+	  }
+	}
+	if !isset($_POST['style'])){
+	  $styleErr = " Style is required.";
+	  echo $styleErr;
+>>>>>>> origin/master
 	} else {
 		$style = test_input($_POST["style"]);
 	}
