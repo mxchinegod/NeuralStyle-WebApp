@@ -97,12 +97,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	  // check if e-mail address is well-formed
 	  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 	    $emailErr = " Invalid email format"; 
-	    echo $emailErr
+	    echo $emailErr;
 	  }
 	}
 	if !isset($_POST['style'])){
 	  $styleErr = " Style is required.";
-	  echo $styleErr
+	  echo $styleErr;
 	} else {
 	  $style = test_input($_POST["style"]);
 	}
