@@ -63,14 +63,15 @@
     <![endif]-->
   </head>
 <body style="background-image:url('bg.jpg');">
+
     <div class="container" style="background-color:'white';">
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">My Images</a></li>
+            <li role="presentation" class="active"><a href="myimageshandle.php">My Images</a></li>
             <li role="presentation"><a href="index.html">Home</a></li>
             <li role="presentation"><a href="about.html">About</a></li>
-            <li role="presentation"><a href="myimages.php">Contact</a></li>
+            <li role="presentation"><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
         <h3 class="text-muted"><img src="https://cdn.shopify.com/s/files/1/1210/1588/t/20/assets/logo.png?3388914896091068191" style="width:100px;"></h3>
@@ -79,36 +80,29 @@
       <div class="jumbotron">
         <h1>Please enter your email</h1><br><p>it should be the one you used when you got your photos processed!
         <p class="lead"><html><hr>
-<body>
-<form action="myimageshandle.php" method="post" enctype="multipart/form-data">
+
+<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" enctype="multipart/form-data">
 E-mail:
-<input type="text" name="email" id="email2"><br>
+<input type="text" name="email2"><br>
 <br>
 <input type="submit" value="Retrieve" name="submit"><br><br>
 </form>
 <?php
 
-echo scanDirectoryImages("processed".$email2."/");
-
-/**
-* Recursively search through directory for images and display them
-* 
-* @param  array  $exts
-* @param  string $directory
-* @return string
-*/
 function scanDirectoryImages($directory, array $exts = array('jpeg', 'jpg', 'gif', 'png'))
-{
-if (substr($directory, -1) == '/') {
-    $directory = substr($directory, 0, -1);
-}
-$html = '';
-if (
-    is_readable($directory)
-    && (file_exists($directory) || is_dir($directory))
-) {
-    $directoryList = opendir($directory);
-    while($file = readdir($directoryList)) {
+    {
+
+    if (substr($directory, -1) == '/') {
+        $directory = substr($directory, 0, -1);
+    }
+
+    $html = '';
+    if (
+        is_readable($directory)
+        && (file_exists($directory) || is_dir($directory))
+    ) {
+        $directoryList = opendir($directory);
+        while($file = readdir($directoryList)) {
         if ($file != '.' && $file != '..') {
             $path = $directory . '/' . $file;
             if (is_readable($path)) {
@@ -121,18 +115,20 @@ if (
                 ) {
                     $html .= '<a href="' . $path . '"><img src="' . $path
                         . '" style="max-height:250px;max-width:250px" />  </a>';
-                }
+           }
             }
         }
+        }
+        closedir($directoryList);
     }
-    closedir($directoryList);
+    return $html;
 }
-return $html;
-}
-unset($email);
+$dir = 'processed/'.$_POST['email2'];
+file_put_contents('/var/www/html'.'/debuglog.txt', $dir, FILE_APPEND ); 
+if(isset($_POST['submit'])) 
+	echo scanDirectoryImages($dir);
 ?>
-</body>
-</html></p>
+</body></p>
       </div>
 
       <div class="row marketing">
@@ -168,5 +164,5 @@ unset($email);
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+
 </html>

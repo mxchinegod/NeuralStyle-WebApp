@@ -67,7 +67,7 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="myimages.php">My Images</a></li>
+            <li role="presentation"><a href="myimageshandle.php">My Images</a></li>
             <li role="presentation" class="active"><a href="index.html">Home</a></li>
             <li role="presentation"><a href="about.html">About</a></li>
             <li role="presentation"><a href="contact.html">Contact</a></li>
@@ -77,7 +77,7 @@
       </div>
 
       <div class="jumbotron">
-        <h1>Processing...</h1><br><p>we have received your image.
+        <h1>Processing...</h1><br><p>we have received your upload.
         <p class="lead"><html><hr>
 <body>
 <center>
@@ -91,18 +91,26 @@ $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if (empty($_POST["email"])) {
-	  $emailErr = "Email is required";
+	  $emailErr = " <b>Email is required</b><br><br>";
+	  rmdir($target_dir.$email);
+          $uploadOk = 0;
 	} else {
 	  $email = test_input($_POST["email"]);
 	  // check if e-mail address is well-formed
 	  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-	    $emailErr = " Invalid email format"; 
+	    $emailErr = " <b>Invalid email format</b><br><br>";
+	    rmdir($target_dir.$email);
+	    $uploadOk = 0;
 	  }
 	}
-	if (empty($_POST["style"])) {
-	  $styleErr = " Style is required";
+	if (!isset($_POST['style'])){
+		$styleErr = " <b>Style is required.</b><br><br>";
+        	$uploadOk = 0;
+		echo $styleErr;
+		unlink($target_file);
+		rmdir($target_dir.$email);
 	} else {
-	  $style = test_input($_POST["style"]);
+		$style = test_input($_POST["style"]);
 	}
 }
 // Check if image file is a actual image or fake image
@@ -110,16 +118,10 @@ if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
     } else {
         echo " File is not an image.";
         $uploadOk = 0;
     }
-}
-// Check if file already exists
-if (file_exists($target_file)) {
-    echo " Sorry, file already exists.";
-    $uploadOk = 0;
 }
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 10000000) {
@@ -144,7 +146,7 @@ if ($uploadOk == 0) {
 	$command = escapeshellcmd('python resizescript.py '.$email.' '.basename($_FILES["fileToUpload"]["name"]).' '.$style);
 	$output = shell_exec($command);
 	echo "<br><br>".$output."to process!";
-	header("refresh:10; url=myimages.php");
+	header("refresh:5; url=myimageshandle.php");
 	} else {
         	echo " Sorry, there was an error uploading your file.";
     }
@@ -160,7 +162,7 @@ unset($style);
 unset($target_file);
 ?>
 </body>
-</html></p>
+</p>
       </div>
 
       <div class="row marketing">
@@ -196,5 +198,5 @@ unset($target_file);
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+ 
 </html>
