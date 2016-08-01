@@ -82,14 +82,14 @@
         <p class="lead"><html><hr>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" enctype="multipart/form-data">
-E-mail:
-<input type="text" name="email2"><br>
-<br>
-<input type="submit" value="Retrieve" name="submit"><br><br>
+<center>
+<input type="text" name="email2" class="form-control" style="width:40%;" placeholder="E-mail"><br>
+<br></center>
+<input type="submit" value="Retrieve" name="submit" class="btn btn-primary"><br><br>
 </form>
 <?php
 
-function scanDirectoryImages($directory, array $exts = array('jpeg', 'jpg', 'gif', 'png'))
+function scanDirectoryImages($directory, array $exts = array('jpeg', 'jpg', 'gif', 'png', 'JPG', 'JPEG', 'GIF', 'PNG'))
     {
 
     if (substr($directory, -1) == '/') {
