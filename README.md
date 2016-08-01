@@ -4,7 +4,7 @@
 That being said, it was very possible and we don't mind it being here for certain people to gaze upon.
 
 
--https://github.com/yusuketomoto/chainer-fast-neuralstyle/blob/master/generate.py
+-https://github.com/yusuketomoto/chainer-fast-neuralstyle/blob/master/train.py
 
 
 -If you plan on exporting new models from images like I explain in "Setup" then you should do this:
