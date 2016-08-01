@@ -44,9 +44,6 @@ That being said, it was very possible and we don't mind it being here for certai
   
 # Final & Future Thoughts:
 
-  -Lots of updating to do, there are PHP specific issues if I'm not mistaken when it comes to multiple users at the same time. I'll make a changelog over time.
-  
-  
   -So far, calculations for smaller (500px wide) images only take about 1 second on my 6700K 4.7Ghz, this is of course very fast or what you'd expect from a powerful CPU however an AWS EC2 instance with only a 8-12 core CPU does it in about 4.7 seconds which isn't bad at all.
   
   
