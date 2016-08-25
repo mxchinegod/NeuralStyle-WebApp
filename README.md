@@ -30,8 +30,6 @@ That being said, it was very possible and we don't mind it being here for certai
   
 # Requirements:
   
-  -You need python27 (could probably work with 3 if you change some things). This comes with Ubuntu but if you don't have it: `sudo apt-get build-essential checkinstall`
-  
   -You need chainer: `sudo pip install chainer`
   
   -You need apache2 & PHP: `sudo apt-get install apache2 && sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt`
