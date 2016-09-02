@@ -34,7 +34,7 @@ That being said, it was very possible and we don't mind it being here for certai
   
   -You need apache2 & PHP: `sudo apt-get install apache2 && sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt`
   
-  -You need resizeimage: `sudo pip install resizeimage`
+  -You need resizeimage: `sudo pip install python-resize-image`
   
 # Installation:
 
